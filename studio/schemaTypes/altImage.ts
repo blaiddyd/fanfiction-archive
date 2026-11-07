@@ -1,9 +1,5 @@
 import { defineField, defineType } from "sanity";
 
-/**
- * Reusable image type that always requires alt text.
- * Use it anywhere with `type: "altImage"`.
- */
 export const altImage = defineType({
     name: "altImage",
     title: "Image",

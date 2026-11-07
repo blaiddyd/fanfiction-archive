@@ -29,3 +29,6 @@
 *.local
 
 .env
+
+# generated GROQ schema
+schema.json

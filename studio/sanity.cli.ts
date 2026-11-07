@@ -5,6 +5,14 @@ export default defineCliConfig({
     projectId: process.env.SANITY_STUDIO_PROJECT_ID,
     dataset: process.env.SANITY_STUDIO_DATASET_NAME
   },
+  typegen: {
+    // Where to look for GROQ queries (defineQuery calls) — the Astro app.
+    path: '../web/src/**/*.{ts,tsx,js,jsx}',
+    // Created by `sanity schema extract`.
+    schema: 'schema.json',
+    // Types are written into the Astro app.
+    generates: '../web/src/sanity.types.ts',
+  },
   deployment: {
     /**
      * Enable auto-updates for studios.

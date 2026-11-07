@@ -1,10 +1,11 @@
 ---
+import { sanityClient } from "sanity:client";
+import { UNIVERSES_QUERY } from "../lib/queries"
 import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
-
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
+
+const universes = await sanityClient.fetch(UNIVERSES_QUERY)
 ---
 
 <html lang="en">
@@ -19,10 +20,13 @@ import Button from '../components/Button.astro';
 
 	<body>
 		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">
-				Markdown is also supported...
-			</a>
+			<h1>
+				AUs!
+			</h1>
+			<ul>
+				{universes.map((universe) => <li>{universe.name}</li>)}
+			</ul>
 		</div>
+
 	</body>
 </html>

@@ -22,6 +22,11 @@ export const universe = defineType({
         defineField({
             name: "cover",
             type: "altImage"
+        }),
+        defineField({
+            name: "loreEntries",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "loreEntry" }] }]
         })
     ]
 })

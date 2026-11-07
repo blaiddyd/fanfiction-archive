@@ -17,6 +17,12 @@ export const loreEntry = defineType({
             validation: (rule) => rule.required()
         }),
         defineField({
+            name: "universe",
+            type: "reference",
+            to: [{ type: "universe" }],
+            validation: (rule) => rule.required()
+        }),
+        defineField({
             name: "type",
             type: "string",
             options: {
@@ -39,6 +45,12 @@ export const loreEntry = defineType({
         defineField({
             name: "description", 
             type: "text"
+        }),
+        defineField({
+            name: "shortDescription",
+            type: "text",
+            rows: 3,
+            validation: (rule) => rule.max(150)
         }),
         defineField({
             name: "images",
